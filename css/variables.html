@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="main">
+      <header>
+        <h1>Update CSS variables with <span class="changed">JS</span></h1>
+        <div class="header-item">
+          <label for="spacing">Spacing:</label>
+          <input
+            type="range"
+            name="spacing"
+            min="0"
+            max="200"
+            data-sizing="px"
+            value="10"
+          />
+
+          <label for="blur">Blur:</label>
+          <input
+            type="range"
+            name="blur"
+            min="0"
+            max="200"
+            data-sizing="px"
+            value="10"
+          />
+        </div>
+        <div class="header-item">
+          <label for="base">Base Color:</label>
+          <input type="color" name="base" value="#fff900" />
+        </div>
+      </header>
+      <section>
+        <img src="/Screenshot_20221010-192102_1.png" alt="" />
+      </section>
+    </div>
+  </body>
+  <style>
+    /*The most interesting part*/
+    :root {
+      --base: #fff900;
+      --spacing: 10px;
+      --blur: 10px;
+    }
+    img {
+      border: 15px solid var(--base);
+      /* padding: var(--spacing);
+      filter: blur(var(--blur)); */
+    }
+    .changed {
+      color: var(--base);
+    }
+
+    /*/////////////////////////*/
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      /* border: 1px solid blue; */
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .main {
+      height: 75vh;
+      width: 50vw;
+      margin: auto;
+      padding: 3rem 5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      align-items: center;
+    }
+
+    header {
+      display: flex;
+      flex-direction: column;
+    }
+    h1 {
+      height: 5rem;
+      text-align: center;
+    }
+    .header-item {
+      display: flex;
+      flex-direction: row;
+      height: 3rem;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+    }
+
+    img {
+      height: 55vh;
+      width: 25vw;
+      border-radius: 4px;
+    }
+  </style>
+  <script>
+    const inputs = document.querySelectorAll(".main input");
+
+    //An important difference between arroy and normal functions => "this"
+    function handleValue() {
+      console.log(this.value);
+    }
+    inputs.forEach((input) => input.addEventListener("change", handleValue));
+    inputs.forEach((input) => input.addEventListener("mousemove", handleValue));
+  </script>
+</html>
