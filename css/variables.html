@@ -9,14 +9,17 @@
   <body>
     <div class="main">
       <header>
-        <h1>Update CSS variables with <span class="changed">JS</span></h1>
+        <h1>
+          Update <span class="changed">CSS</span> variables with
+          <span class="changed">JS</span>
+        </h1>
         <div class="header-item">
           <label for="spacing">Spacing:</label>
           <input
             type="range"
             name="spacing"
             min="0"
-            max="200"
+            max="20"
             data-sizing="px"
             value="10"
           />
@@ -26,14 +29,14 @@
             type="range"
             name="blur"
             min="0"
-            max="200"
+            max="20"
             data-sizing="px"
             value="10"
           />
         </div>
         <div class="header-item">
           <label for="base">Base Color:</label>
-          <input type="color" name="base" value="#fff900" />
+          <input type="color" name="base" value="#146C94" />
         </div>
       </header>
       <section>
@@ -44,14 +47,14 @@
   <style>
     /*The most interesting part*/
     :root {
-      --base: #fff900;
+      --base: #146c94;
       --spacing: 10px;
       --blur: 10px;
     }
     img {
       border: 15px solid var(--base);
-      /* padding: var(--spacing);
-      filter: blur(var(--blur)); */
+      padding: var(--spacing);
+      filter: blur(var(--blur));
     }
     .changed {
       color: var(--base);
@@ -66,16 +69,23 @@
       /* border: 1px solid blue; */
       font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     }
-
+    body {
+      padding: 1rem;
+      background-color: rgb(255, 142, 28);
+    }
     .main {
-      height: 75vh;
-      width: 50vw;
+      background-color: rgb(255, 255, 255);
+
+      height: 95vh;
+      width: 70vw;
       margin: auto;
       padding: 3rem 5rem;
       display: flex;
       flex-direction: column;
       gap: 1rem;
       align-items: center;
+      border: 1px solid gray;
+      border-radius: 10px;
     }
 
     header {
@@ -106,9 +116,25 @@
 
     //An important difference between arroy and normal functions => "this"
     function handleValue() {
-      console.log(this.value);
+      //If the first one doesn't exist, the second parameter will be applied
+      const suffix = this.dataset.sizing || "";
+      //"sizing" is literally a property present on each input that we just determined from our HTML
+      console.log(suffix);
+
+      //Now we are goin to connect with the "root styles"
+      //We found the property name in our styles cause we have the same name as an atribute in our inputs.
+      document.documentElement.style.setProperty(
+        `--${this.name}`,
+        this.value + suffix
+      );
     }
     inputs.forEach((input) => input.addEventListener("change", handleValue));
     inputs.forEach((input) => input.addEventListener("mousemove", handleValue));
+
+    //Notes:
+    // - We can get data in real time with mousemove and change DOMEvents
+    // - We can se the value of an input through the name property
+    // - We can incorporate a new property to an JS DOM Element from HTML
+    // - We can update in real time properties in CSS directly, and using variables we achive 10x of results
   </script>
 </html>
