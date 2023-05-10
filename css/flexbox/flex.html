@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flexbox</title>
+  </head>
+  <style>
+    html {
+      box-sizing: border-box;
+      background-color: rgb(197, 197, 197);
+
+      font-family: system-ui, "Helvetica Neue", sans-serif;
+      font-size: 20px;
+      font-weight: 200;
+    }
+    *,
+    *:before,
+    *:after {
+      box-sizing: inherit;
+    }
+
+    body {
+      margin: 0;
+    }
+    .panels-container {
+      min-height: 100vh;
+      overflow: hidden;
+      display: flex;
+    }
+
+    .panel {
+      background-color: rgb(128, 128, 128);
+      box-shadow: inset 0 0 0 5px rgba(255, 255, 255, 0.1);
+      color: white;
+      text-align: center;
+      align-items: center;
+
+      transition: font-size 0.7s cubic-bezier(0.61, -0.19, 0.7, -0.11),
+        flex 0.7s cubic-bezier(0.61, -0.19, 0.7, -0.11), background 0.2s;
+      font-size: 20px;
+      background-size: cover;
+      background-position: center;
+      /*LMAO CODE
+      This rule makes the images COVER the whole box, with an uniform size for each one:*/
+      flex: 1;
+    }
+
+    /* Flex items: */
+
+    .panel > * {
+      margin: 0;
+      width: 100%;
+      transition: transform 0.5s;
+    }
+
+    .panel p:nth-child(2) {
+      font-size: 2rem;
+    }
+
+    .panels-container div:nth-child(1) {
+      background-image: url("./pexels-temo-berishvili-1574843.jpg");
+    }
+    .panels-container div:nth-child(2) {
+      background-image: url("./pexels-daniel-jurin-1835718.jpg");
+    }
+    .panels-container div:nth-child(3) {
+      background-image: url("./pexels-eberhard-grossgasteiger-1367192.jpg");
+    }
+    .panels-container div:nth-child(4) {
+      background-image: url("./pexels-francesco-ungaro-998653.jpg");
+    }
+    .panels-container div:nth-child(5) {
+      background-image: url("./pexels-chandra-phuyal-10661519.jpg");
+    }
+  </style>
+  <body>
+    <div class="panels-container">
+      <div class="panel">
+        <p>Hey</p>
+        <p>Let's</p>
+        <p>Dance</p>
+      </div>
+      <div class="panel">
+        <p>GIVE</p>
+        <p>TAKE</p>
+        <p>RECEIVE</p>
+      </div>
+      <div class="panel">
+        <p>EXPERIENCE</p>
+        <p>IT</p>
+        <p>TODAY</p>
+      </div>
+      <div class="panel">
+        <p>GIVE</p>
+        <p>ALL</p>
+        <p>YOU CAN</p>
+      </div>
+      <div class="panel">
+        <p>LIFE</p>
+        <p>IN</p>
+        <p>MOTION</p>
+      </div>
+    </div>
+  </body>
+</html>
