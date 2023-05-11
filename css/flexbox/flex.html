@@ -4,6 +4,12 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
     <title>Flexbox</title>
   </head>
   <style>
@@ -45,25 +51,63 @@
       /*LMAO CODE
       This rule makes the images COVER the whole box, with an uniform size for each one:*/
       flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
     }
 
     /* Flex items: */
 
     .panel > * {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      flex: 1 0 auto;
+
       margin: 0;
-      width: 100%;
+      /* width: 100%; */
       transition: transform 0.5s;
     }
 
-    .panel p:nth-child(2) {
+    .panel p {
       font-size: 2rem;
+      font-family: "Amatic SC", cursive;
+    }
+
+    .panel p:nth-child(1) {
+      transform: translateY(-100%);
+    }
+    .panel.open-active p:nth-child(1) {
+      transform: translateY(0);
+    }
+
+    .panel p:nth-child(3) {
+      transform: translateY(100%);
+    }
+    .panel.open-active p:nth-child(3) {
+      transform: translateY(0);
+    }
+
+    .panel p:nth-child(2) {
+      font-size: 4rem;
+    }
+
+    .open-active {
+      transition: 0.5s;
+    }
+
+    .open {
+      flex: 5;
+      font-size: 6rem;
     }
 
     .panels-container div:nth-child(1) {
       background-image: url(https://images.pexels.com/photos/1367192/pexels-photo-1367192.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
     }
     .panels-container div:nth-child(2) {
-      background-image: url(https://images.pexels.com/photos/975771/pexels-photo-975771.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
+      background-image: url(https://images.pexels.com/photos/795622/pexels-photo-795622.jpeg?auto=compress&cs=tinysrgb&w=400);
     }
     .panels-container div:nth-child(3) {
       background-image: url(https://images.pexels.com/photos/1078981/pexels-photo-1078981.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
@@ -104,4 +148,21 @@
       </div>
     </div>
   </body>
+  <script>
+    const panels = document.querySelectorAll(".panel");
+
+    function toggleOpen() {
+      this.classList.toggle("open");
+    }
+    function toggleOpenActive(e) {
+      if (e.propertyName.includes("flex")) {
+        this.classList.toggle("open-active");
+      }
+    }
+    panels.forEach((panel) => panel.addEventListener("click", toggleOpen));
+
+    panels.forEach((panel) =>
+      panel.addEventListener("transitionend", toggleOpenActive)
+    );
+  </script>
 </html>
