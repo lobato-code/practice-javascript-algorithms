@@ -69,6 +69,7 @@ span {
   justify-content: space-around;
   margin: auto;
   width: 100%;
+  position: relative;
 }
 
 .browser-container input {
@@ -79,6 +80,25 @@ span {
   padding: 1em;
 }
 
+.suggestions-container {
+  width: 40%;
+  position: absolute;
+  top: 100%;
+  left: 1.5rem;
+  z-index: 40;
+  min-width: 60%;
+  background-color: white;
+  border-radius: 5px;
+  border: 1px solid var(--green);
+  display: none;
+}
+.suggestions-container p {
+  padding: 15px;
+  border-bottom: 1px solid var(--green);
+}
+.suggestions-container p:last-child {
+  border-bottom: none;
+}
 .country-info-container {
   width: 100%;
   display: flex;
