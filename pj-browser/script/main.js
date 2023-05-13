@@ -51,13 +51,14 @@ fetch("https://restcountries.com/v3.1/all")
       if (searchResponse.length === 0) {
         suggestionsContainer.style.display = "none";
       }
-      let suggestionHtml = "";
-      searchResponse.forEach((response) => {
-        suggestionHtml += ` <div class="sugg">              
+      let suggestionHtml = searchResponse
+        .map((response) => {
+          return ` <div class="sugg">              
           <p>${response.name.common}, ${response.capital}</p>
           <p>${response.population}</p>
           </div>`;
-      });
+        })
+        .join("");
       suggestionsContainer.innerHTML = suggestionHtml;
       console.log(typeof this.value);
     }
