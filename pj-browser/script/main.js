@@ -47,11 +47,16 @@ fetch("https://restcountries.com/v3.1/all")
     }
     function displayMatches() {
       suggestionsContainer.style.display = "block";
-
       let searchResponse = findMatch(this.value, countries);
+      if (searchResponse.length === 0) {
+        suggestionsContainer.style.display = "none";
+      }
       let suggestionHtml = "";
       searchResponse.forEach((response) => {
-        suggestionHtml += ` <p>${response.name.common}</p>`;
+        suggestionHtml += ` <div class="sugg">              
+          <p>${response.name.common}, ${response.capital}</p>
+          <p>${response.population}</p>
+          </div>`;
       });
       suggestionsContainer.innerHTML = suggestionHtml;
       console.log(typeof this.value);
