@@ -2,6 +2,7 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  /* border: 1px solid gray; */
 }
 
 :root {
@@ -36,7 +37,7 @@ span {
 }
 
 .nav-menu-container li {
-  padding: 1rem;
+  padding: 1em;
   list-style: none;
 }
 
@@ -45,25 +46,85 @@ span {
   color: var(--green);
 }
 
-.country-info-container {
+.main-container {
   padding: 1rem 1rem;
   border-radius: 5px;
 
   height: 500px;
-  width: 50vw;
+  max-width: 20vw;
+  min-width: 50vw;
   background-color: var(--bk-gray);
-  margin: auto;
+  margin: 1rem auto;
   font-family: arial;
   border: 1px solid var(--border-milk);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
+.browser-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin: auto;
+  width: 100%;
+}
+
+.browser-container input {
+  max-width: 70%;
+  min-width: 70%;
+  border-radius: 10px;
+  border: 1px solid gray;
+  padding: 1em;
+}
+
+.country-info-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.country-info-flag {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  gap: 10px;
+  padding: 1em;
+}
+
+img {
+  width: 100%;
+}
 .flag-img {
-  height: 200px;
-  width: 300px;
+  height: 150px;
+  width: 200px;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 2px;
+  background-color: white;
+}
+
+.flag-name {
+  font-size: 30px;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+}
+
+.country-info-details {
+  width: 100%;
+  text-align: center;
+}
+
+.country-info-details p {
+  padding: 7px;
+  width: 100%;
 }
 
 .btn-primary {
-  width: 8rem;
+  width: 7em;
   height: 3rem;
   font-family: "Quicksand", sans-serif;
   background-color: var(--green);
@@ -75,7 +136,7 @@ span {
   cursor: pointer;
   display: block;
   transition: 0.3s;
-  margin: auto;
+  /* margin: auto; */
 }
 
 .btn-primary:hover {
