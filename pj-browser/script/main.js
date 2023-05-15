@@ -53,8 +53,13 @@ fetch("https://restcountries.com/v3.1/all")
       }
       let suggestionHtml = searchResponse
         .map((response) => {
+          const regex = new RegExp(this.value, "gi");
+          const countryName = response.name.common.replace(
+            regex,
+            `<span class="highlight">${this.value}</span>`
+          );
           return ` <div class="sugg">              
-          <p>${response.name.common}, ${response.capital}</p>
+          <p class="sugg-name">${countryName}, ${response.capital}</p>
           <p>${response.population}</p>
           </div>`;
         })
@@ -68,6 +73,12 @@ fetch("https://restcountries.com/v3.1/all")
     function render() {
       const searchResponse = findMatch(searchInput.value, countries);
       renderCountry(searchResponse[0]);
+      searchInput.value = "";
+      suggestionsContainer.style.display = "none";
+    }
+
+    function renderBySuggestion(country) {
+      renderCountry(country);
       searchInput.value = "";
       suggestionsContainer.style.display = "none";
     }

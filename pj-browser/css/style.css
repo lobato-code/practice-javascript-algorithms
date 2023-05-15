@@ -15,6 +15,12 @@
 span {
   color: var(--green);
 }
+
+.highlight {
+  background: rgb(198, 251, 118);
+  color: black;
+}
+
 .nav-container {
   height: 10vh;
   display: flex;
@@ -98,6 +104,7 @@ span {
   justify-content: space-between;
   padding: 15px;
   border-bottom: 1px solid var(--green);
+  text-transform: capitalize;
 }
 .suggestions-container .sugg:last-child {
   border-bottom: none;
@@ -120,9 +127,6 @@ span {
   padding: 1em;
 }
 
-img {
-  width: 100%;
-}
 .flag-img {
   height: 150px;
   width: 200px;
