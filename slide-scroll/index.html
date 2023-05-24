@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Slide scroll</title>
+  </head>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      /* border: 1px solid red; */
+    }
+
+    html {
+      background-color: cornsilk;
+    }
+    img {
+      height: 200px;
+      width: 300px;
+      border: 10px solid rgb(198, 198, 198);
+    }
+    p {
+      padding: 1em;
+      box-shadow: inset 0 0 10px 1px gray;
+      width: 100%;
+    }
+
+    #main-container {
+      background-color: cornsilk;
+      height: 100%;
+    }
+
+    #text-container {
+      max-width: 70vw;
+      margin: 100px auto;
+      background: white;
+      padding: 40px;
+      text-align: justify;
+    }
+
+    .title {
+      text-align: center;
+    }
+    .align-right {
+      float: right;
+      margin-left: 1em;
+    }
+
+    .align-left {
+      float: left;
+      margin-right: 1em;
+    }
+
+    .slide-in {
+      opacity: 0;
+      transition: all 0.5s;
+    }
+
+    .align-left.slide-in {
+      transform: translateX(-30%) scale(0.95);
+    }
+    .align-right.slide-in {
+      transform: translateX(30%) scale(0.95);
+    }
+
+    .slide-in.active {
+      opacity: 1;
+      transform: translateX(0) scale(1);
+    }
+  </style>
+  <body>
+    <div id="main-container">
+      <div id="text-container">
+        <h1 class="title">Let's lorem!</h1>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit
+          minus ea, error accusamus excepturi modi, repellat earum at beatae
+          nulla animi pariatur nihil exercitationem laudantium amet dolorem
+          architecto sint voluptates? Natus quisquam quaerat explicabo.
+        </p>
+        <img
+          src="https://plus.unsplash.com/premium_photo-1675826725982-e8508781c558?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80"
+          alt=""
+          class="align-left slide-in"
+        />
+        <p>
+          Distinctio dolorem tempore accusantium iusto! Minima labore obcaecati
+          laudantium beatae ab assumenda consequuntur consequatur cum reiciendis
+          eaque? Debitis, mollitia? Ea praesentium illum odit, expedita magni
+          hic? Sit itaque eum nobis ullam ipsa. Quam accusamus maiores ducimus
+          assumenda, inventore dolores nesciunt corrupti esse, eveniet eaque
+          quis illo molestias sapiente, tempore consectetur! Id fuga natus sit
+          error qui.
+        </p>
+        <p>
+          Distinctio dolorem tempore accusantium iusto! Minima labore obcaecati
+          laudantium beatae ab assumenda consequuntur consequatur cum reiciendis
+          eaque? Debitis, mollitia? Ea praesentium illum odit, expedita magni
+          hic? Sit itaque eum nobis ullam ipsa. Quam accusamus maiores ducimus
+          assumenda, inventore dolores nesciunt corrupti esse, eveniet eaque
+          quis illo molestias sapiente, tempore consectetur! Id fuga natus sit
+          error qui. Lorem ipsum dolor sit amet consectetur adipisicing elit.
+          Reprehenderit minus ea, error accusamus excepturi modi, repellat earum
+          at beatae nulla animi pariatur nihil exercitationem laudantium amet
+          dolorem architecto sint voluptates? Natus quisquam quaerat explicabo.
+          Id fuga natus sit error qui.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit
+          minus ea, error accusamus excepturi modi, repellat earum at beatae
+          nulla animi pariatur nihil exercitationem laudantium amet dolorem
+          architecto sint voluptates? Natus quisquam quaerat explicabo.
+        </p>
+        <img
+          src="https://images.unsplash.com/photo-1682686581776-b6ebee7c150e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwxNnx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=60"
+          alt=""
+          class="align-right slide-in"
+        />
+        <p>
+          Distinctio dolorem tempore accusantium iusto! Minima labore obcaecati
+          laudantium beatae ab assumenda consequuntur consequatur cum reiciendis
+          eaque? Debitis, mollitia? Ea praesentium illum odit, expedita magni
+          hic? Sit itaque eum nobis ullam ipsa. Quam accusamus maiores ducimus
+          assumenda, inventore dolores nesciunt corrupti esse, eveniet eaque
+          quis illo molestias sapiente, tempore consectetur! Id fuga natus sit
+          error qui.
+        </p>
+        <p>
+          Distinctio dolorem tempore accusantium iusto! Minima labore obcaecati
+          laudantium beatae ab assumenda consequuntur consequatur cum reiciendis
+          eaque? Debitis, mollitia? Ea praesentium illum odit, expedita magni
+          hic? Sit itaque eum nobis ullam ipsa. Quam accusamus maiores ducimus
+          assumenda, inventore dolores nesciunt corrupti esse, eveniet eaque
+          quis illo molestias sapiente, tempore consectetur! Id fuga natus sit
+          error qui. Lorem ipsum dolor sit amet consectetur adipisicing elit.
+          Reprehenderit minus ea, error accusamus excepturi modi, repellat earum
+          at beatae nulla animi pariatur nihil exercitationem laudantium amet
+          dolorem architecto sint voluptates? Natus quisquam quaerat explicabo.
+          Id fuga natus sit error qui.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit
+          minus ea, error accusamus excepturi modi, repellat earum at beatae
+          nulla animi pariatur nihil exercitationem laudantium amet dolorem
+          architecto sint voluptates? Natus quisquam quaerat explicabo.
+        </p>
+        <img
+          src="https://images.unsplash.com/photo-1684514570779-24e264a337a3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwyM3x8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=60"
+          alt=""
+          class="align-left slide-in"
+        />
+        <p>
+          Distinctio dolorem tempore accusantium iusto! Minima labore obcaecati
+          laudantium beatae ab assumenda consequuntur consequatur cum reiciendis
+          eaque? Debitis, mollitia? Ea praesentium illum odit, expedita magni
+          hic? Sit itaque eum nobis ullam ipsa. Quam accusamus maiores ducimus
+          assumenda, inventore dolores nesciunt corrupti esse, eveniet eaque
+          quis illo molestias sapiente, tempore consectetur! Id fuga natus sit
+          error qui.
+        </p>
+        <p>
+          Distinctio dolorem tempore accusantium iusto! Minima labore obcaecati
+          laudantium beatae ab assumenda consequuntur consequatur cum reiciendis
+          eaque? Debitis, mollitia? Ea praesentium illum odit, expedita magni
+          hic? Sit itaque eum nobis ullam ipsa. Quam accusamus maiores ducimus
+          assumenda, inventore dolores nesciunt corrupti esse, eveniet eaque
+          quis illo molestias sapiente, tempore consectetur! Id fuga natus sit
+          error qui. Lorem ipsum dolor sit amet consectetur adipisicing elit.
+          Reprehenderit minus ea, error accusamus excepturi modi, repellat earum
+          at beatae nulla animi pariatur nihil exercitationem laudantium amet
+          dolorem architecto sint voluptates? Natus quisquam quaerat explicabo.
+          Id fuga natus sit error qui.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit
+          minus ea, error accusamus excepturi modi, repellat earum at beatae
+          nulla animi pariatur nihil exercitationem laudantium amet dolorem
+          architecto sint voluptates? Natus quisquam quaerat explicabo.
+        </p>
+        <img
+          src="https://images.unsplash.com/photo-1684827844157-5a9085408044?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwyOXx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=60"
+          alt=""
+          class="align-right slide-in"
+        />
+        <p>
+          Distinctio dolorem tempore accusantium iusto! Minima labore obcaecati
+          laudantium beatae ab assumenda consequuntur consequatur cum reiciendis
+          eaque? Debitis, mollitia? Ea praesentium illum odit, expedita magni
+          hic? Sit itaque eum nobis ullam ipsa. Quam accusamus maiores ducimus
+          assumenda, inventore dolores nesciunt corrupti esse, eveniet eaque
+          quis illo molestias sapiente, tempore consectetur! Id fuga natus sit
+          error qui.
+        </p>
+        <p>
+          Distinctio dolorem tempore accusantium iusto! Minima labore obcaecati
+          laudantium beatae ab assumenda consequuntur consequatur cum reiciendis
+          eaque? Debitis, mollitia? Ea praesentium illum odit, expedita magni
+          hic? Sit itaque eum nobis ullam ipsa. Quam accusamus maiores ducimus
+          assumenda, inventore dolores nesciunt corrupti esse, eveniet eaque
+          quis illo molestias sapiente, tempore consectetur! Id fuga natus sit
+          error qui. Lorem ipsum dolor sit amet consectetur adipisicing elit.
+          Reprehenderit minus ea, error accusamus excepturi modi, repellat earum
+          at beatae nulla animi pariatur nihil exercitationem laudantium amet
+          dolorem architecto sint voluptates? Natus quisquam quaerat explicabo.
+          Id fuga natus sit error qui.
+        </p>
+      </div>
+    </div>
+  </body>
+  <script>
+    function debounce(func, wait = 20, immediate = true) {
+      var timeout;
+      return function () {
+        var context = this,
+          args = arguments;
+        var later = function () {
+          timeout = null;
+          if (!immediate) func.apply(context, args);
+        };
+        var callNow = immediate && !timeout;
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+        if (callNow) func.apply(context, args);
+      };
+    }
+
+    const sliderImages = document.querySelectorAll(".slide-in");
+
+    function checkSlide(e) {
+      sliderImages.forEach((image) => {
+        //slideInAt has the exact position when the image is half displayed:
+        const slideInAt =
+          window.scrollY + window.innerHeight - image.height / 2;
+        console.log(slideInAt);
+        //Has the exact position when the image is full displayed
+        const imageBottom = image.offsetTop + image.height;
+
+        const isHalfShown = slideInAt > image.offsetTop;
+        const isNotScrolledPast = window.scrollY < imageBottom;
+        if (isHalfShown && isNotScrolledPast) {
+          image.classList.add("active");
+        } else {
+          image.classList.remove("active");
+        }
+      });
+    }
+    //Debounce function avoids the excessive number of times the other function is executed.
+    window.addEventListener("scroll", debounce(checkSlide));
+  </script>
+</html>
