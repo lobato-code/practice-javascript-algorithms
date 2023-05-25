@@ -1,15 +1,21 @@
-const form = document.querySelector("#list-form");
-document.querySelector("#list-form-submit").addEventListener("click", (e) => {
-  e.preventDefault();
-  console.log("received");
-  ProcessData.addItems();
-  RenderDOM.renderItems();
-  form.reset();
-});
-
-const items = [];
+const GetUserInfo = (() => {
+  const form = document.querySelector("#list-form");
+  const activateListner = () => {
+    document
+      .querySelector("#list-form-submit")
+      .addEventListener("click", (e) => {
+        e.preventDefault();
+        console.log("received");
+        ProcessData.addItems();
+        form.reset();
+      });
+  };
+  return { activateListner };
+})();
 
 const ProcessData = (() => {
+  const database = [];
+
   const createItem = (tech, done) => {
     return { tech, done };
   };
@@ -19,8 +25,9 @@ const ProcessData = (() => {
       document.querySelector("#list-form-input").value,
       false
     );
-    items.push(newItem);
-    console.log(items);
+    database.push(newItem);
+    console.log(database);
+    RenderDOM.renderItems(database);
   };
 
   return { addItems };
@@ -28,17 +35,19 @@ const ProcessData = (() => {
 
 const RenderDOM = (() => {
   const itemsContainer = document.querySelector("#items-container");
-  const renderItems = () => {
-    let loadHTML = "";
-    items.forEach((item) => {
-      loadHTML += `
-        <div class="item">
+  const renderItems = (database) => {
+    itemsContainer.innerHTML = database
+      .map((item, i) => {
+        return `
+        <div class="item" id="item-${i}">
             <input type="checkbox" />
             <p>${item.tech}</p>
         </div>
         `;
-    });
-    itemsContainer.innerHTML = loadHTML;
+      })
+      .join("");
   };
   return { renderItems };
 })();
+
+GetUserInfo.activateListner();
