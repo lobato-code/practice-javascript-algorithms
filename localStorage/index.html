@@ -4,9 +4,32 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
     <title>Local Storage</title>
   </head>
   <body>
-    <div id="main-container"></div>
+    <div id="main-container">
+      <div id="list-container">
+        <h1 class="title">Technologies</h1>
+        <div id="items-container">
+          <div class="item">
+            <input type="checkbox" />
+            <p>Git</p>
+          </div>
+          <div class="item">
+            <input type="checkbox" />
+            <p>Git</p>
+          </div>
+          <div class="item">
+            <input type="checkbox" />
+            <p>Git</p>
+          </div>
+        </div>
+        <form id="list-form">
+          <input type="text" name="form-input" id="list-form-input" />
+          <input type="submit" value="Add" id="list-form-submit" />
+        </form>
+      </div>
+    </div>
   </body>
 </html>

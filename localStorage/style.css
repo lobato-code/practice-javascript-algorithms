@@ -1,0 +1,75 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* border: 1px solid red; */
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+#main-container {
+  background-image: url(https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8d2ViJTIwZGV2fGVufDB8fDB8fHww&auto=format&fit=crop&w=400&q=60);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#list-container {
+  background-color: rgb(216, 216, 216);
+  text-align: center;
+  width: 30%;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+#items-container {
+  width: 95%;
+  margin: auto;
+  background-color: rgb(44, 44, 85);
+  border-radius: 5px;
+}
+
+#list-form {
+  height: 3em;
+  padding: 5px;
+}
+#list-form input {
+  height: 100%;
+  padding: 10px;
+  border: 1px solid rgb(173, 173, 173);
+  border-radius: 2px;
+}
+
+#list-form input:focus {
+  outline: 1px solid rgb(44, 44, 85);
+}
+
+#list-form-input {
+  width: 20em;
+}
+
+#list-form-submit {
+  transition: 0.5s ease-in-out;
+  background: rgb(198, 198, 249);
+
+  width: 5em;
+}
+
+#list-form-submit:hover {
+  transition: 0.5s ease-in-out;
+  background: rgb(44, 44, 85);
+  color: aliceblue;
+}
+
+.title {
+  padding: 20px;
+}
+
+.item {
+  display: flex;
+  gap: 1em;
+  padding: 1em 2em;
+  color: white;
+  border-bottom: 1px solid rgb(131, 131, 131);
+}
