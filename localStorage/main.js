@@ -36,7 +36,16 @@ const ProcessData = (() => {
   const deleteItem = (e) => {
     let index = e.target.dataset.index;
     database.splice(index, 1);
-    console.log("Deleted");
+    console.log("Delete-d");
+    LocalStorage.save(database);
+    RenderDOM.renderItems(database);
+  };
+
+  const toggleDone = (e) => {
+    if (!e.target.matches("input")) return;
+    let [, index] = e.target.id.split("-");
+    database[index].done = !database[index].done;
+    console.log("Toggle!");
     LocalStorage.save(database);
     RenderDOM.renderItems(database);
   };
@@ -44,7 +53,7 @@ const ProcessData = (() => {
   const getDataBase = () => {
     return database;
   };
-  return { addItems, getDataBase, deleteItem };
+  return { addItems, getDataBase, deleteItem, toggleDone };
 })();
 
 const RenderDOM = (() => {
@@ -85,8 +94,14 @@ const FormFunctionality = (() => {
       deleter.addEventListener("click", ProcessData.deleteItem);
     });
   };
-  return { activeDeleters };
+  const activeToggler = () => {
+    document
+      .querySelector("#items-container")
+      .addEventListener("click", ProcessData.toggleDone);
+  };
+  return { activeDeleters, activeToggler };
 })();
 
 //Only works untill new items are added
 FormFunctionality.activeDeleters();
+FormFunctionality.activeToggler();
