@@ -1,16 +1,19 @@
 const GetUserInfo = (() => {
   const form = document.querySelector("#list-form");
-  const activateListner = () => {
+  const activateForm = () => {
     document
       .querySelector("#list-form-submit")
       .addEventListener("click", (e) => {
         e.preventDefault();
-        console.log("received");
+        console.log("Received");
         ProcessData.addItems();
+        FormFunctionality.activeDeleters();
+
         form.reset();
       });
   };
-  return { activateListner };
+
+  return { activateForm };
 })();
 
 const ProcessData = (() => {
@@ -30,10 +33,18 @@ const ProcessData = (() => {
     RenderDOM.renderItems(database);
   };
 
+  const deleteItem = (e) => {
+    let index = e.target.dataset.index;
+    database.splice(index, 1);
+    console.log("Deleted");
+    LocalStorage.save(database);
+    RenderDOM.renderItems(database);
+  };
+
   const getDataBase = () => {
     return database;
   };
-  return { addItems, getDataBase };
+  return { addItems, getDataBase, deleteItem };
 })();
 
 const RenderDOM = (() => {
@@ -47,6 +58,7 @@ const RenderDOM = (() => {
           item.done ? "checked" : ""
         } />
             <label for="item-${i}">${item.tech}</label>
+            <button data-index="${i}" class="btn-delete list-deleter">Delete</button>
         </div>
         `;
       })
@@ -59,8 +71,22 @@ const LocalStorage = (() => {
   const save = (database) => {
     localStorage.setItem("techs", JSON.stringify(database));
   };
+
   return { save };
 })();
 
-GetUserInfo.activateListner();
+GetUserInfo.activateForm();
 RenderDOM.renderItems(ProcessData.getDataBase());
+
+//Dont understan why this code can't move from here
+const FormFunctionality = (() => {
+  const activeDeleters = () => {
+    document.querySelectorAll(".list-deleter").forEach((deleter) => {
+      deleter.addEventListener("click", ProcessData.deleteItem);
+    });
+  };
+  return { activeDeleters };
+})();
+
+//Only works untill new items are added
+FormFunctionality.activeDeleters();
