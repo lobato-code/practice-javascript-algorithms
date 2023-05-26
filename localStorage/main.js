@@ -14,8 +14,7 @@ const GetUserInfo = (() => {
 })();
 
 const ProcessData = (() => {
-  const database = [];
-
+  const database = JSON.parse(localStorage.getItem("techs")) || [];
   const createItem = (tech, done) => {
     return { tech, done };
   };
@@ -27,21 +26,27 @@ const ProcessData = (() => {
     );
     database.push(newItem);
     console.log(database);
+    LocalStorage.save(database);
     RenderDOM.renderItems(database);
   };
 
-  return { addItems };
+  const getDataBase = () => {
+    return database;
+  };
+  return { addItems, getDataBase };
 })();
 
 const RenderDOM = (() => {
   const itemsContainer = document.querySelector("#items-container");
-  const renderItems = (database) => {
+  const renderItems = (database = []) => {
     itemsContainer.innerHTML = database
       .map((item, i) => {
         return `
-        <div class="item" id="item-${i}">
-            <input type="checkbox" />
-            <p>${item.tech}</p>
+        <div class="item">
+            <input type="checkbox"  id="item-${i}" ${
+          item.done ? "checked" : ""
+        } />
+            <label for="item-${i}">${item.tech}</label>
         </div>
         `;
       })
@@ -50,4 +55,12 @@ const RenderDOM = (() => {
   return { renderItems };
 })();
 
+const LocalStorage = (() => {
+  const save = (database) => {
+    localStorage.setItem("techs", JSON.stringify(database));
+  };
+  return { save };
+})();
+
 GetUserInfo.activateListner();
+RenderDOM.renderItems(ProcessData.getDataBase());
