@@ -36,11 +36,15 @@ function checkSlide(e) {
 //Debounce function avoids the excessive number of times the other function is executed.
 window.addEventListener("scroll", debounce(checkSlide));
 
+// Navigation
 const nav = document.querySelector("#nav-menu");
 const topOfNav = nav.offsetTop;
 
 const fixNav = () => {
   if (window.scrollY >= topOfNav) {
+    document.body.classList.add("fixed-nav");
+  } else {
+    document.body.classList.remove("fixed-nav");
   }
 };
 
