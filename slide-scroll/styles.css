@@ -19,7 +19,7 @@ body {
 }
 
 * {
-  border: 1px solid rgb(211, 211, 211);
+  /* border: 1px solid rgb(211, 211, 211); */
 }
 
 /*Header section*/
@@ -41,6 +41,39 @@ body {
 }
 
 /*Navigation section*/
+
+#navbar-main {
+  background: black;
+  top: 0;
+  width: 100%;
+  transition: all 0.5s;
+  position: relative;
+  z-index: 1;
+}
+
+#navbar-main ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+}
+
+#navbar-main li {
+  flex: 1;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#navbar-main a {
+  text-decoration: none;
+  padding: 20px;
+  display: inherit-block;
+  color: white;
+  transition: all 0.2s;
+  text-transform: uppercase;
+}
 
 /*Text section*/
 
