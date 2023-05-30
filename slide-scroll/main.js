@@ -20,7 +20,7 @@ function checkSlide(e) {
   sliderImages.forEach((image) => {
     //slideInAt has the exact position when the image is half displayed:
     const slideInAt = window.scrollY + window.innerHeight - image.height / 2;
-    console.log(slideInAt);
+    // console.log(slideInAt);
     //Has the exact position when the image is full displayed
     const imageBottom = image.offsetTop + image.height;
 
@@ -35,3 +35,13 @@ function checkSlide(e) {
 }
 //Debounce function avoids the excessive number of times the other function is executed.
 window.addEventListener("scroll", debounce(checkSlide));
+
+const nav = document.querySelector("#nav-menu");
+const topOfNav = nav.offsetTop;
+
+const fixNav = () => {
+  if (window.scrollY >= topOfNav) {
+  }
+};
+
+window.addEventListener("scroll", fixNav);
