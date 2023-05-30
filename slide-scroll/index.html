@@ -4,74 +4,24 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
     <title>Slide scroll</title>
   </head>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      /* border: 1px solid red; */
-    }
 
-    html {
-      background-color: cornsilk;
-    }
-    img {
-      height: 200px;
-      width: 300px;
-      border: 10px solid rgb(198, 198, 198);
-    }
-    p {
-      padding: 1em;
-      box-shadow: inset 0 0 10px 1px gray;
-      width: 100%;
-    }
-
-    #main-container {
-      background-color: cornsilk;
-      height: 100%;
-    }
-
-    #text-container {
-      max-width: 70vw;
-      margin: 100px auto;
-      background: white;
-      padding: 40px;
-      text-align: justify;
-    }
-
-    .title {
-      text-align: center;
-    }
-    .align-right {
-      float: right;
-      margin-left: 1em;
-    }
-
-    .align-left {
-      float: left;
-      margin-right: 1em;
-    }
-
-    .slide-in {
-      opacity: 0;
-      transition: all 0.5s;
-    }
-
-    .align-left.slide-in {
-      transform: translateX(-30%) scale(0.95);
-    }
-    .align-right.slide-in {
-      transform: translateX(30%) scale(0.95);
-    }
-
-    .slide-in.active {
-      opacity: 1;
-      transform: translateX(0) scale(1);
-    }
-  </style>
   <body>
+    <header id="main-image">
+      <p>DISCOVER</p>
+    </header>
+    <nav>
+      <div id="nav-menu">
+        <ul id="menu-container">
+          <li class="menu-item"><a href="#">Home</a></li>
+          <li class="menu-item"><a href="#">About</a></li>
+          <li class="menu-item"><a href="#">Home</a></li>
+          <li class="menu-item"><a href="#">About</a></li>
+        </ul>
+      </div>
+    </nav>
     <div id="main-container">
       <div id="text-container">
         <h1 class="title">Let's lorem!</h1>
@@ -210,44 +160,5 @@
       </div>
     </div>
   </body>
-  <script>
-    function debounce(func, wait = 20, immediate = true) {
-      var timeout;
-      return function () {
-        var context = this,
-          args = arguments;
-        var later = function () {
-          timeout = null;
-          if (!immediate) func.apply(context, args);
-        };
-        var callNow = immediate && !timeout;
-        clearTimeout(timeout);
-        timeout = setTimeout(later, wait);
-        if (callNow) func.apply(context, args);
-      };
-    }
-
-    const sliderImages = document.querySelectorAll(".slide-in");
-
-    function checkSlide(e) {
-      sliderImages.forEach((image) => {
-        //slideInAt has the exact position when the image is half displayed:
-        const slideInAt =
-          window.scrollY + window.innerHeight - image.height / 2;
-        console.log(slideInAt);
-        //Has the exact position when the image is full displayed
-        const imageBottom = image.offsetTop + image.height;
-
-        const isHalfShown = slideInAt > image.offsetTop;
-        const isNotScrolledPast = window.scrollY < imageBottom;
-        if (isHalfShown && isNotScrolledPast) {
-          image.classList.add("active");
-        } else {
-          image.classList.remove("active");
-        }
-      });
-    }
-    //Debounce function avoids the excessive number of times the other function is executed.
-    window.addEventListener("scroll", debounce(checkSlide));
-  </script>
+  <script src="./main.js"></script>
 </html>
