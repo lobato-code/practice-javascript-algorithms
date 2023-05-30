@@ -75,6 +75,10 @@ body {
   text-transform: uppercase;
 }
 
+body.fixed-nav #navbar-main {
+  position: fixed;
+}
+
 /*Text section*/
 
 .site-wrap {

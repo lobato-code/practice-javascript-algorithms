@@ -37,14 +37,17 @@ function checkSlide(e) {
 window.addEventListener("scroll", debounce(checkSlide));
 
 // Navigation
-const nav = document.querySelector("#nav-menu");
+const nav = document.querySelector("#navbar-main");
 const topOfNav = nav.offsetTop;
 
 const fixNav = () => {
   if (window.scrollY >= topOfNav) {
+    document.body.style.paddingTop = nav.offsetHeight + "px";
     document.body.classList.add("fixed-nav");
+    console.log("hit");
   } else {
     document.body.classList.remove("fixed-nav");
+    document.body.style.paddingTop = 0;
   }
 };
 
