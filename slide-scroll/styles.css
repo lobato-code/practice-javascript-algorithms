@@ -58,6 +58,20 @@ body {
   display: flex;
 }
 
+li.logo {
+  max-width: 0;
+  overflow: hidden;
+  background: white;
+  transition: all 0.5s;
+  font-weight: 600;
+  font-size: 25px;
+}
+
+#navbar-main li.logo a {
+  color: black;
+  text-transform: none;
+}
+
 #navbar-main li {
   flex: 1;
   text-align: center;
@@ -77,6 +91,10 @@ body {
 
 body.fixed-nav #navbar-main {
   position: fixed;
+}
+
+.fixed-nav li.logo {
+  max-width: 500px;
 }
 
 /*Text section*/
