@@ -76,6 +76,10 @@ function howManyIntegers(array) {
   }
   return (count += howManyIntegers(array));
 }
+
+// Question 8:
+// Write a function that sums squares of numbers in list that may contain more lists
+
 function sumSquares(array) {
   if (array.length === 0) return 0;
   let count = 0;
@@ -113,4 +117,4 @@ var nestedObject = {
 };
 console.log(`Q-6: ${contains(nestedObject, 44)}`);
 console.log(`Q-7: ${howManyIntegers([[0, 9], [[1, 2, [3]]], "sol"])}`);
-console.log(`Q-7: ${sumSquares([[0, 9], [[1, 2, [3]]], "sol"])}`);
+console.log(`Q-8: ${sumSquares([[0, 9], [[1, 2, [3]]], "sol"])}`);
