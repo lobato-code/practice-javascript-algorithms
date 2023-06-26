@@ -92,6 +92,14 @@ function sumSquares(array) {
   return (count += sumSquares(array));
 }
 
+// Question 9:
+// The function should return an array containing repetitions of the number argument. For instance, replicate(3, 5) should return [5,5,5]. If the times argument is negative, return an empty array.
+
+function replicate(times, value) {
+  if (times <= 0) return [];
+  return [value].concat(replicate(times - 1, value));
+}
+
 console.log(`Q.1: ${sumRange(25)}`);
 console.log(`Q.2: ${power(3, 3)}`);
 console.log(`Q.3: ${factorial(5)}`);
@@ -118,3 +126,4 @@ var nestedObject = {
 console.log(`Q-6: ${contains(nestedObject, 44)}`);
 console.log(`Q-7: ${howManyIntegers([[0, 9], [[1, 2, [3]]], "sol"])}`);
 console.log(`Q-8: ${sumSquares([[0, 9], [[1, 2, [3]]], "sol"])}`);
+console.log(`Q-9: ${replicate(2, 3)}`);
