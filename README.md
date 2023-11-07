@@ -1,8 +1,8 @@
 # Practice: Javascript Challenges
 
-Here is the place where I upload my attemps to solve algorithm problems from leetcode or free code camp.
+This is where I upload my attempts to solve leetcode or free code camp algorithm problems.
 
-The folder **challenges** contains very interesting exercises to check.
+The **challenges** folder contains very interesting exercises to check.
 
 ```js
 function rotate(nums) {
