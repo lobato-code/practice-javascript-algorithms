@@ -1,44 +1,42 @@
-// const array = [7, 2, 9, 4, 1, 9];
+function mergeSort(arr) {
+  let len = arr.length;
+  if (len <= 2) {
+    arr = dualSort(arr);
 
-// function spliteArray(arr) {
-//   //Quiero que esta funcion divida en grupos e imprima cada division en console:
-//   let ans = [...arr];
-//   let len = arr.length;
-//   if (len === 1) return;
-//   let arr1 = [];
-//   let arr2 = [];
-//   //   console.log("ans", ans);
-//   if (len % 2 === 0) {
-//     const arr1 = ans.splice(len / 2);
-//     console.log("arr1", arr1);
-//     spliteArray(arr1);
-//     console.log("arr", ans);
-//     spliteArray(ans);
-//   } else {
-//     arr1 = ans.splice(0, 1);
-//     console.log("arr1", arr1);
-//     console.log("arr", ans);
-//     spliteArray(ans);
-
-//     //Se repite con el nuevo ans
-//   }
-// }
+    return arr;
+  }
+  let arr1 = arr.filter((item, index) => {
+    return index < len / 2;
+  });
+  let arr2 = arr.filter((i, index) => {
+    return index >= len / 2;
+  });
+  return merge(mergeSort(arr1), mergeSort(arr2));
+}
+const array = [2, 1];
+console.log("mergeSort(array)", mergeSort(array));
 
 //Dados dos arrays ORDENADOS, de debe tomar cada item del primero y compararlo con cada item del segundo.
 //Si el item comparador es menor, se lo ubica inmediatamente en el array respuesta, sino se lo ubica al elemento comparado en su lugar/
 function merge(arr1, arr2) {
   const ans1 = [...arr1];
   const ans2 = [...arr2];
+  let answer;
 
-  for (let i = 0; i < ans1.length; i++) {
-    const item = ans1[i];
-    const res = locate(item, ans2);
-    console.log("res", res);
+  recursive();
+  function recursive(len = ans1.length, i = 0, arr = ans2) {
+    if (i >= len) {
+      answer = arr;
+      return;
+    } else {
+      const item = ans1[i];
+      const res = locate(item, arr);
+      i++;
+      recursive(len, i, res);
+    }
   }
-
-  //   console.log("arr2", arr2);
+  return answer;
 }
-merge([1, 2, 5, 9], [4, 6, 7]);
 
 function dualSort(arr) {
   if (arr[0] > arr[1]) {
@@ -63,7 +61,48 @@ function locate(num, arr) {
     ans.push(num);
   }
 
-  //   console.log("ans", ans);
   return ans;
 }
-// locate(11, [3, 6, 9]);
+// function mergeSort() {
+//   let len = array.length;
+//   const arr1 = array.filter((item, index) => {
+//     return index < len / 2;
+//   });
+//   const arr2 = array.filter((i, index) => {
+//     return index >= len / 2;
+//   });
+//   len = len / 2;
+//   let arr3 = arr1.filter((item, index) => {
+//     return index < len / 2;
+//   });
+//   let arr4 = arr1.filter((i, index) => {
+//     return index >= len / 2;
+//   });
+//   let arr5 = arr2.filter((item, index) => {
+//     return index < len / 2;
+//   });
+//   let arr6 = arr2.filter((i, index) => {
+//     return index >= len / 2;
+//   });
+
+//   arr3 = dualSort(arr3);
+//   arr4 = dualSort(arr4);
+
+//   arr5 = dualSort(arr5);
+//   arr6 = dualSort(arr6);
+
+//   console.log(`After dual sorting`);
+//   console.log("arr3", arr3);
+//   console.log("arr4", arr4);
+//   console.log("arr5", arr5);
+//   console.log("arr6", arr6);
+
+//   let mergedArray = [...arr3];
+//   mergedArray = merge(mergedArray, arr4);
+//   mergedArray = merge(mergedArray, arr5);
+//   mergedArray = merge(mergedArray, arr6);
+
+//   console.log("mergedArray", mergedArray);
+// }
+
+// // mergeSort();
