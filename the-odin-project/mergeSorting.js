@@ -16,8 +16,8 @@ function mergeSort(arr) {
 const array = [2, 1];
 console.log("mergeSort(array)", mergeSort(array));
 
-//Dados dos arrays ORDENADOS, de debe tomar cada item del primero y compararlo con cada item del segundo.
-//Si el item comparador es menor, se lo ubica inmediatamente en el array respuesta, sino se lo ubica al elemento comparado en su lugar/
+//Given two ORDERED arrays, take each item from the first and compare it with each item from the second.
+//If the comparator item is smaller, it is immediately placed in the response array, otherwise the compared item is placed in its place/.
 function merge(arr1, arr2) {
   const ans1 = [...arr1];
   const ans2 = [...arr2];
