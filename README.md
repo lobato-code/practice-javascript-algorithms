@@ -20,3 +20,4 @@ function rotate(nums) {
   console.log("Nums", nums);
 }
 ```
+I need to organize this exercises
