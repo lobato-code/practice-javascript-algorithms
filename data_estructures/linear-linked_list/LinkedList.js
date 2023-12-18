@@ -55,6 +55,22 @@ class LinkedList {
     }
     return null;
   }
+
+  pop() {
+    if (!this.listHead) return null;
+    let cur = this.listHead;
+    let prev = null;
+    while (cur.nextNode != null) {
+      prev = cur;
+      cur = cur.nextNode;
+    }
+    if (prev) {
+      prev.nextNode = null;
+    } else {
+      this.listHead = null;
+    }
+    return cur.value;
+  }
 }
 
 module.exports = LinkedList;

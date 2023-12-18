@@ -17,3 +17,5 @@ const linkedList = {
   },
 };
 ```
+
+So, in summary, _prev is not a copy of the linked list but rather a reference_ to a specific node in the list. Modifying the properties of that node through the prev reference directly affects the linked list structure. I hope this clears up any confusion
