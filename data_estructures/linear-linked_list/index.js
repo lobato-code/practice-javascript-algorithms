@@ -26,3 +26,6 @@ console.log('head', linkedList.head());
 console.log('tail', linkedList.tail());
 console.log('at', linkedList.at(1));
 console.log('pop', linkedList.pop(), 'size-1', linkedList.size());
+console.log('contains', linkedList.contains(3));
+console.log('find', linkedList.find(3));
+console.log('toString', linkedList.toString(3));

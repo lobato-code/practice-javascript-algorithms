@@ -36,6 +36,7 @@ class LinkedList {
   }
 
   tail() {
+    if (!this.listHead) return null;
     let temp = this.listHead;
     while (temp.nextNode != null) {
       temp = temp.nextNode;
@@ -70,6 +71,39 @@ class LinkedList {
       this.listHead = null;
     }
     return cur.value;
+  }
+
+  contains(value) {
+    let temp = this.listHead;
+    while (temp != null) {
+      if (temp.value === value) return true;
+      temp = temp.nextNode;
+    }
+    return false;
+  }
+
+  find(value) {
+    if (!this.listHead) return null;
+    let temp = this.listHead;
+    let count = 0;
+    while (temp != null) {
+      if (temp.value === value) return count;
+      temp = temp.nextNode;
+      count += 1;
+    }
+    return null;
+  }
+
+  toString() {
+    if (!this.listHead) return null;
+    let temp = this.listHead;
+    let str = '';
+    while (temp != null) {
+      str += `( ${temp.value.toString()} ) -> `;
+      temp = temp.nextNode;
+    }
+    str += null;
+    return str;
   }
 }
 
