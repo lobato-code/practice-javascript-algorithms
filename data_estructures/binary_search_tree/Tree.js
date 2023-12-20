@@ -20,6 +20,20 @@ class Tree {
     root.right = this.buildTree(arr, mid + 1, end);
     return root;
   }
+
+  insert(value, root = this.root) {
+    console.log('root', root);
+    if (root == null) {
+      root = new Node(value);
+      return root;
+    }
+    if (value < root.data) {
+      root.left = this.insert(value, root.left);
+    } else if (value > root.data) {
+      root.right = this.insert(value, root.right);
+    }
+    return root;
+  }
 }
 
 module.exports = Tree;

@@ -13,6 +13,16 @@ const prettyPrint = (node, prefix = '', isLeft = true) => {
   }
 };
 
-const array = [1, 2, 3, 4, 5, 6];
-const { root } = new Tree(array);
-prettyPrint(root);
+// Initialize tree
+const array = [1, 2, 3, 4, 5, 8];
+const tree = new Tree(array);
+
+// Call methods
+tree.insert(7);
+// tree.insert(9);
+// tree.insert(0);
+// tree.insert(15);
+// tree.insert(13);
+
+// Check the tree
+prettyPrint(tree.root);
