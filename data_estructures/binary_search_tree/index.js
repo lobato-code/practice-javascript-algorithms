@@ -14,11 +14,18 @@ const prettyPrint = (node, prefix = '', isLeft = true) => {
 };
 
 // Initialize tree
-const array = [1, 2, 3, 4, 5, 8];
+const array = [3, 10, 24, 32, 34, 50, 800];
 const tree = new Tree(array);
 
 // Call methods
 tree.insert(7);
+tree.insert(6);
+console.log('tree.walk()', tree.walk());
+console.log('tree.find()', tree.find(10));
+console.log('tree.minimun()', tree.minimun().data);
+console.log('tree.maximun()', tree.maximun().data);
+console.log('tree.succesor(tree)', tree.succesor(tree.root));
+
 // tree.insert(9);
 // tree.insert(0);
 // tree.insert(15);
