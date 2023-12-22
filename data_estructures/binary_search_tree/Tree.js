@@ -62,10 +62,16 @@ class Tree {
   }
 
   succesor(node) {
+    if (node.right == null) {
+      return undefined;
+    }
+    console.log('node.right', node.right);
     return this.minimun(node.right);
   }
 
-  parent(node) {}
+  predeccessor(node) {
+    return this.maximun(node.left);
+  }
 
   // Recursive Case: Reassignment (move the pointer)
   insert(value, root = this.root) {
@@ -77,6 +83,33 @@ class Tree {
       root.left = this.insert(value, root.left);
     } else if (value > root.data) {
       root.right = this.insert(value, root.right);
+    }
+    return root;
+  }
+
+  delete(value, root = this.root) {
+    // Si queremos poner un puntero sobre cada nodo y a la vez no solo visualizarlo sino alterarlo tambien, entonces vamos a requerir recursion asignativa.
+    // Lo primero que queremos hacer es escontrar el nodo a eliminar
+    if (root == null) return root;
+    if (value < root.data) {
+      root.left = this.delete(value, root.left);
+      return root;
+    }
+    if (value > root.data) {
+      root.right = this.delete(value, root.right);
+      return root;
+    }
+    // Aca llegamos cuando encontramos el nodo buscado
+    // En caso de un subnodo o inexistente: Verificamos de que lado esta el subnodo existente y lo retornamos como el nuevo subnodo del nodo padre del nodo a eliminar
+    if (root.left == null) {
+      const temp = root.right;
+      root.right = null;
+      return temp;
+    }
+    if (root.right == null) {
+      const temp = root.left;
+      root.left = null;
+      return temp;
     }
     return root;
   }
