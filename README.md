@@ -17,7 +17,8 @@ function rotate(nums) {
     i++;
   }
 
-  console.log("Nums", nums);
+  console.log('Nums', nums);
 }
 ```
-I need to organize this exercises, is very important to me
+
+> Para mejorar en la programacion hay que entrenar todos los dias, pero sin olvidar que es mejor menos tiempo pero con calidad, que pasarsela todo el dia en lo mismo. (Less is more)
