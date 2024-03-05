@@ -61,12 +61,21 @@ class Tree {
     return this.maximun(root.right);
   }
 
-  succesor(node) {
-    if (node.right == null) {
+  succesor(value, root = this.root) {
+    // if (node.right == null) {
+    //   return this.minimun(node.right);
+    // }
+    // PRimero vamos a hallar al nodo que contiene el value
+    if (value < root.data) {
+      return this.succesor(value, root.left);
+    }
+    if (value > root.data) {
+      return this.succesor(value, root.right);
+    }
+    if (root.right == null) {
       return undefined;
     }
-    console.log('node.right', node.right);
-    return this.minimun(node.right);
+    return this.minimun(root.right).data;
   }
 
   predeccessor(node) {
