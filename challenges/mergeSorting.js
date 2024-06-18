@@ -13,8 +13,11 @@ function mergeSort(arr) {
   });
   return merge(mergeSort(arr1), mergeSort(arr2));
 }
-const array = [2, 1];
-console.log("mergeSort(array)", mergeSort(array));
+const array = [
+  2, 1, 1, 3, 4, 5, 3, 1, 4, 5345, 534, 5435, 345, 435, 435, 12, 543, 5654,
+  6453,
+];
+console.log('mergeSort(array)', mergeSort(array));
 
 //Given two ORDERED arrays, take each item from the first and compare it with each item from the second.
 //If the comparator item is smaller, it is immediately placed in the response array, otherwise the compared item is placed in its place/.
