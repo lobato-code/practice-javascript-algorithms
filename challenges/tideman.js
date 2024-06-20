@@ -1,33 +1,52 @@
-const candidates = ['Darwin', 'Rafael', 'Monica']
+const candidates = ['A', 'B', 'C'];
 
-let candidates_count = candidates.length
+let candidates_count = candidates.length;
 
 const ranks = [
-    [0, 1, 2],
-    [2, 1, 0],
-    [1, 0, 2]
-]
-const voters = ranks.length
+  [0, 1, 2],
+  [2, 1, 0],
+  [1, 0, 2],
+];
+const voters = ranks.length;
 
-const preferences = Array.from({ length: candidates_count }, () => Array(candidates_count).fill(0))
+const pairs = [];
 
-const pairs = []
+const preferences = Array.from({ length: candidates_count }, () =>
+  Array(candidates_count).fill(0)
+);
 
-
-for (let i = 0; i < voters; i++) {
-    for (let j = 0; j < ranks[i].length; j++) {
-        for (let k = j + 1; k < ranks[i].length; k++) {
-            preferences[ranks[i][j]][ranks[i][k]] += 1
-        }
+function recordPreferences() {
+  for (let i = 0; i < voters; i++) {
+    for (let j = 0; j < candidates_count; j++) {
+      for (let k = j + 1; k < candidates_count; k++) {
+        // console.log(`${ranks[i][j]} -> ${ranks[i][k]}`);
+        preferences[ranks[i][j]][ranks[i][k]] += 1;
+      }
     }
+  }
 }
 
-
-for (let i = 0; i < candidates_count; i++) {
-   for (let j = 0; j < candidates_count; j++) {
-    if(i!=j){
-         console.log(`Preference: ${candidates[i]} -> ${candidates[j]}: ${preferences[i][j]}`)
-    }  
-   }   
+function addPairs() {
+  for (let i = 0; i < candidates_count; i++) {
+    for (let j = i + 1; j < candidates_count; j++) {
+      if (i != j && preferences[i][j] != preferences[j][i]) {
+        if (preferences[i][j] > preferences[j][i]) {
+          pairs.push({
+            winner: i,
+            loser: j,
+          });
+        } else {
+          pairs.push({
+            winner: j,
+            loser: i,
+          });
+        }
+      }
+    }
+  }
 }
+recordPreferences();
+addPairs();
 
+console.log('preferences', preferences);
+console.log('pairs', pairs);
